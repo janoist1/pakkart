@@ -1,0 +1,5 @@
+htd_app:
+    resource: "@HTDAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
