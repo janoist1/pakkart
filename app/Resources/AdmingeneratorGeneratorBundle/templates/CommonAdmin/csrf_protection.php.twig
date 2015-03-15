@@ -1,0 +1,48 @@
+{% block csrf_protection_use %}
+    use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
+{% endblock %}
+
+{% block csrf_check_token %}
+
+    /**
+    * Check crsf token provided for action
+    *
+    * @throw InvalidCsrfTokenException if token is invalid
+    protected function isCsrfTokenValid($intention)
+    {
+        $token = $this->getRequest()->request->get('_csrf_token');
+        if (!$this->get('form.csrf_provider')->isCsrfTokenValid($intention, $token)) {
+        throw new InvalidCsrfTokenException();
+        }
+    }*/
+
+    /**
+    * Checks the validity of a CSRF token
+    *
+    * @param string $id    The id used when generating the token
+    * @param string $token The actual token sent with the request that should be validated
+    *
+    * @return bool
+    */
+    protected function isCsrfTokenValid($id, $token)
+    {
+        if (!$this->container->has('security.csrf.token_manager')) {
+            throw new \LogicException('CSRF protection is not enabled in your application.');
+        }
+
+        return $this->container->get('security.csrf.token_manager')->isTokenValid(new CsrfToken($id, $token));
+    }
+
+{% endblock %}
+
+{% block csrf_action_check_token %}
+    // Check CSRF token for action
+    $intention = $this->getRequest()->getRequestUri();
+    $this->isCsrfTokenValid($intention);
+{% endblock %}
+
+{% block csrf_action_check_batch_token %}
+    // Check CSRF token for batch action
+    $intention = '{{ namespace_prefix }}_{{ bundle_name ~ (builder.BaseGeneratorName ? '_' ~ builder.BaseGeneratorName :'')}}_batch';
+    $this->isCsrfTokenValid($intention);
+{% endblock %}
