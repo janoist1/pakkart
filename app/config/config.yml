@@ -77,6 +77,12 @@ fos_user:
     firewall_name: main
     user_class: HTD\AppBundle\Entity\User
 
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            sortable: true
+
 admingenerator_generator:
     use_propel:          false
     use_doctrine_orm:    true
