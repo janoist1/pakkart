@@ -1,0 +1,59 @@
+generator: admingenerator.generator.doctrine
+
+params:
+    model: HTD\AppBundle\Entity\Product
+    namespace_prefix: HTD
+    concurrency_lock: ~
+    bundle_name: AdminBundle
+    pk_requirement: ~
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+    i18n_catalog: Admingenerator
+
+builders:
+    list:
+        params:
+            title: List for Products
+            display: [ 'title', 'dimensions', 'price', 'rate' ]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    excel:
+        params: ~
+        filename: ~
+        filetype: ~
+    filters:
+        params:
+            display: [ 'title', 'description', 'dimensions', 'price', 'rate' ]
+    new:
+        params:
+            title: New object for AppBundle
+            display: [ 'title', 'description', 'dimensions', 'price', 'rate' ]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: Product.title }|"
+            display: [ 'title', 'description', 'dimensions', 'price', 'rate' ]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Product.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~
