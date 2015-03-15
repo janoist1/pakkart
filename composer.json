@@ -19,10 +19,11 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "stof/doctrine-extensions-bundle": "1.2.*@dev"
+        "stof/doctrine-extensions-bundle": "1.2.*@dev",
+        "cedriclombardot/admingenerator-generator-bundle": "1.2.*@dev"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "2.4.*"
     },
     "scripts": {
         "post-root-package-install": [
@@ -46,7 +47,8 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "component-dir": "web/components"
     },
     "extra": {
         "symfony-app-dir": "app",
