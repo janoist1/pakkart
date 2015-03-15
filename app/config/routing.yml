@@ -3,6 +3,11 @@ htd_admin:
     type:     annotation
     prefix:   /admin
 
+HTDAdminBundle_admin_htd_admin_bundle_contact:
+    resource: "@HTDAdminBundle/Controller/Contact/"
+    type:     admingenerator
+    prefix:   /admin/contact
+
 HTDAdminBundle_admin_htd_admin_bundle_artist:
     resource: "@HTDAdminBundle/Controller/Artist/"
     type:     admingenerator
