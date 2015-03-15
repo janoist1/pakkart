@@ -1,4 +1,6 @@
 /.idea/
+/web/components/
+/web/assetic/
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
