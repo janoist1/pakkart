@@ -1,0 +1,12 @@
+{% extends "HTDAppBundle::base.html.twig" %}
+
+{% block title %}Termékek{% endblock title %}
+
+{% block body %}
+    <h3>Termékek:</h3>
+    <ul>
+        {% for product in products %}
+        <li>{{ product.title }}, {{ product.price }} Ft</li>
+        {% endfor %}
+    </ul>
+{% endblock body %}
