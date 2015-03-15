@@ -18,7 +18,7 @@ HTDAdminBundle_admin_htd_admin_bundle_artist:
     type:     admingenerator
     prefix:   /admin/artist
 
-HTDAdminBundle_admin_htd_admin_bundle__product:
+HTDAdminBundle_admin_htd_admin_bundle_product:
     resource: "@HTDAdminBundle/Controller/Product/"
     type:     admingenerator
     prefix:   /admin/product
